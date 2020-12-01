@@ -57,19 +57,19 @@ namespace SharpDocx
             try
             {
 #endif
-                using (Package = WordprocessingDocument.Open(documentPath, true))
+            using (Package = WordprocessingDocument.Open(documentPath, true))
+            {
+                var codeBlockBuilder = new CodeBlockBuilder(Package);
+                CodeBlocks = codeBlockBuilder.CodeBlocks;
+                Map = codeBlockBuilder.BodyMap;
+
+                InvokeDocumentCode();
+
+                foreach (var cb in CodeBlocks)
                 {
-                    var codeBlockBuilder = new CodeBlockBuilder(Package);
-                    CodeBlocks = codeBlockBuilder.CodeBlocks;
-                    Map = codeBlockBuilder.BodyMap;
-
-                    InvokeDocumentCode();
-
-                    foreach (var cb in CodeBlocks)
-                    {
-                        cb.RemoveEmptyParagraphs();
-                    }
+                    cb.RemoveEmptyParagraphs();
                 }
+            }
 
 #if NET35 && SUPPORT_MULTI_THREADING_AND_LARGE_DOCUMENTS_IN_NET35
             }
@@ -168,6 +168,8 @@ namespace SharpDocx
             {
                 filePath = $"{ImageDirectory}/{filePath}";
             }
+
+            if (!File.Exists(filePath)) return;
 
             var imageTypePart = ImageHelper.GetImagePartType(filePath);
 
