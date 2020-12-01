@@ -63,6 +63,7 @@ namespace SharpDocx
             var vertRezDpi = imageInfo.DpiV;
 #endif
             const int emusPerInch = 914400;
+            //此处修改是为了解决当图片大小小于默认dip值时，插入到word总无法显示的问题
             var widthEmus = (long)(widthPx * emusPerInch / horzRezDpi);
             var heightEmus = (long)(heightPx * emusPerInch / vertRezDpi);
 
