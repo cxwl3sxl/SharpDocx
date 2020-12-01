@@ -2,8 +2,8 @@
 <package >
   <metadata>
     <id>SharpDocx</id>
-    <version>2.0.4.0</version>
-    <authors>egonl</authors>
+    <version>2.0.4.1</version>
+    <authors>egonl&amp;xl</authors>
     <owners>egonl</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/egonl/SharpDocx</projectUrl>
@@ -15,7 +15,10 @@
 - Supports .NET Framework 3.5/4.5+ and .NET Standard 2.0.
 - Based on Microsoft's Open XML SDK.
 - Source code, tutorial and sample code on GitHub.</description>
-    <releaseNotes>Version 2.0.4 - August 8, 2020
+    <releaseNotes>
+Version 2.0.4.1 - 2020-12-1 17:03:06
+- 解决docx中插入的图片像素过小时候无法显示的问题
+Version 2.0.4 - August 8, 2020
 - Fixed issue #21.
 	
 Version 2.0.3 - July 28, 2020
